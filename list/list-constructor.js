@@ -24,4 +24,17 @@ List.prototype.pop = function() {
   return returnValue;
 };
 
+List.prototype.shift = function(item) {
+  this.data[0] = item;
+};
+
+List.prototype.forEach = function(callback) {
+  if (typeof callback !== 'function') {
+    throw new TypeError('callback must be a function');
+  }
+  for (let i = 0; i < this.length; i++) {
+    callback(this.data[i]);
+  }
+};
+
 module.exports = List;
